@@ -3,8 +3,8 @@ const form = document.getElementById('form')
 const postRequest = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form); // Create a FormData object from the form element to grab each field and their values
-    const inputValues = {}; // Create an object to store the value of each input field
+    const formData = new FormData(form); // Creates a FormData object from the form element to grab each field and their values
+    const inputValues = {}; // Creates an object to store the value of each input field
 
     const clearErrors = () => { // Function to clear any existing error messages from the DOM
         const errorElements = document.querySelectorAll('.error'); // Select all elements with the class 'error'
@@ -29,11 +29,11 @@ const postRequest = (e) => {
 
     // NAME VALIDATION
     if(!inputValues.firstName) { // Checks if the first name field is empty
-        showError('firstName', 'First name is required'); // Show an error message for the first name field
+        showError('firstName', 'First name is required'); 
         hasError = true; // Set hasError to true if there is an error
     }
     if(!inputValues.lastName) { // Checks if the last name field is empty
-        showError('lastName', 'Last name is required'); // Show an error message for the last name field
+        showError('lastName', 'Last name is required'); 
         hasError = true; 
     }
 
@@ -45,7 +45,7 @@ const postRequest = (e) => {
 
     // DOB VALIDATION
     if(inputValues.dob === '') { // Checks if the date of birth field is empty or not
-        showError('dob', 'Date of birth is required'); // Show an error message for the date of birth field
+        showError('dob', 'Date of birth is required'); 
         hasError = true; 
     }
 
@@ -53,22 +53,22 @@ const postRequest = (e) => {
 
     //PHONE NUMBER VALIDATION
     const phoneNum = inputValues.phone; // Gets the phone number value from the inputValues object
-    const phonePattern = /^\d{10,15}$/; // Regular expression to validate phone number format (10 digits)
+    const phonePattern = /^\d{10,15}$/; // Regular expression to validate phone number format (10-15 digits)
 
-    if(!phonePattern.test(phoneNum)) { // Checks if the phone number field is empty or not
-        showError('phone', 'Phone number must be betrween 10-15 digits'); // Show an error message for the phone number field
+    if(!phonePattern.test(phoneNum)) { // Checks if the phone number value matches or not
+        showError('phone', 'Phone number must be betrween 10-15 digits'); 
     }
 
 
 
     // EMAIL VALIDATION
     if(inputValues.email === '') { // Checks if the email field is empty or not
-        showError('email', 'Email is required'); // Show an error message for the email field
+        showError('email', 'Email is required'); 
         hasError = true; 
     } else {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression to validate email format
         if(!emailPattern.test(inputValues.email)) { // Checks if the email format is valid or not
-            showError('email', 'Email is invalid'); // Show an error message for invalid email format
+            showError('email', 'Email is invalid'); // 
             hasError = true; 
         }
     }
@@ -81,8 +81,8 @@ const postRequest = (e) => {
         showError('password', 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character'); // Show an error message for invalid password format
         hasError = true; 
     }
-    if(password !== confirmPassword) { // Checks if the password and confirm password fields match
-        showError('confirmPassword', 'Passwords do not match'); // Show an error message for mismatched passwords
+    if(password !== confirmPassword) { // Checks if the password and confirm password fields matches
+        showError('confirmPassword', 'Passwords do not match'); 
         hasError = true; 
     }
     
